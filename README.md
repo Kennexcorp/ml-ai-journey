@@ -51,6 +51,9 @@ scripts/new-project.sh <slug> "Human Title" "concepts, techniques"
 scripts/new-project.sh cnn-mnist "CNN on MNIST" "convolutions, PyTorch"
 ```
 
+Any argument you omit is requested as a prompt, so you can also just run
+`scripts/new-project.sh` with no arguments and answer interactively.
+
 This creates `NN-<slug>/` with `Data/` and `Output/` folders, a templated
 `README.md`, a uv-ready `pyproject.toml`, and a `main.py` stub, and appends a row
 to the projects table above. Then add your dependencies and start building:

@@ -19,12 +19,31 @@ shopt -s nullglob
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
+# Gather inputs from args, prompting for anything not supplied (when the shell
+# is interactive). Passing all three args keeps it fully non-interactive.
 slug="${1:-}"
+if [[ -z "$slug" && -t 0 ]]; then
+  while [[ -z "$slug" ]]; do
+    read -r -p "Project slug (e.g. cnn-mnist): " slug || break
+  done
+fi
 if [[ -z "$slug" ]]; then
+  echo "Error: project slug is required." >&2
   echo "Usage: $0 <slug> [\"Human Title\"] [\"Concepts\"]" >&2
-  echo "  e.g. $0 cnn-mnist \"CNN on MNIST\" \"convolutions, PyTorch\"" >&2
   exit 1
 fi
+
+title="${2:-}"
+if [[ -z "$title" && -t 0 ]]; then
+  read -r -p "Human title [${slug}]: " title || true
+fi
+title="${title:-$slug}"
+
+concepts="${3:-}"
+if [[ -z "$concepts" && -t 0 ]]; then
+  read -r -p "Concepts / techniques [TODO]: " concepts || true
+fi
+concepts="${concepts:-TODO}"
 
 # --- next zero-padded number, scanning existing NN-* folders ---------------
 last=0
@@ -36,9 +55,6 @@ next=$(printf "%02d" $((last + 1)))
 dir="${next}-${slug}"
 
 [[ -e "$dir" ]] && { echo "Error: $dir already exists" >&2; exit 1; }
-
-title="${2:-$slug}"
-concepts="${3:-TODO}"
 
 mkdir -p "$dir/Data" "$dir/Output"
 # Keep the (otherwise empty) dirs in git until real files land in them.
