@@ -40,6 +40,26 @@ uv run python loan_approval.py
 If you don't use `uv`, each project's README also lists a plain
 `pip install` command.
 
+## ✨ Starting a new project
+
+Scaffold the next numbered project with the helper script — it picks the next
+`NN-` prefix automatically:
+
+```bash
+scripts/new-project.sh <slug> "Human Title" "concepts, techniques"
+# e.g.
+scripts/new-project.sh cnn-mnist "CNN on MNIST" "convolutions, PyTorch"
+```
+
+This creates `NN-<slug>/` with `Data/` and `Output/` folders, a templated
+`README.md`, a uv-ready `pyproject.toml`, and a `main.py` stub, and appends a row
+to the projects table above. Then add your dependencies and start building:
+
+```bash
+cd NN-<slug>
+uv add <packages>          # e.g. uv add numpy scikit-learn
+```
+
 ## 📁 Repo conventions
 
 - **One folder per project**, numbered for ordering.
@@ -51,5 +71,5 @@ If you don't use `uv`, each project's README also lists a plain
 
 ---
 
-*Maintained by Sylvester. New project ⇒ add a folder, a README, and one row to
-the table above.*
+*Maintained by Sylvester. New project ⇒ run `scripts/new-project.sh`, then fill
+in the generated README and code.*
