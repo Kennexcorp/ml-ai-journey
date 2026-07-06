@@ -1,0 +1,48 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ---- Virtual environments / uv ----
+.venv/
+venv/
+env/
+
+# ---- ML artifacts (keep the repo small!) ----
+# Model checkpoints / serialized models
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.ckpt
+*.pkl
+*.joblib
+*.onnx
+*.pb
+
+# Large / raw data — commit small sample CSVs deliberately with `git add -f`
+*.parquet
+*.feather
+*.npy
+*.npz
+# Uncomment the next line to ignore ALL data dirs by default:
+# **/Data/
+
+# ---- Notebooks: strip heavy outputs before committing when possible ----
+
+# ---- Experiment tracking / logs ----
+wandb/
+mlruns/
+runs/
+lightning_logs/
+*.log
+
+# ---- Claude Code ----
+CLAUDE.md
+
+# ---- OS / editor ----
+.DS_Store
+.idea/
+.vscode/
+*.swp
