@@ -29,6 +29,11 @@ env/
 # Uncomment the next line to ignore ALL data dirs by default:
 # **/Data/
 
+# Generated report figures under */Output/ are intentionally COMMITTED (not
+# ignored) so the project READMEs render results on GitHub without running the
+# code. They're deterministic (fixed random_state), so they change only when the
+# code does. Ignore an Output/ dir here if a project's figures get large.
+
 # ---- Notebooks: strip heavy outputs before committing when possible ----
 
 # ---- Experiment tracking / logs ----

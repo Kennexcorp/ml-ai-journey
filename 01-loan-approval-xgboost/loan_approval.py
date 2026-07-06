@@ -407,7 +407,7 @@ class LoanApprovalModel:
 
 
 if __name__ == '__main__':
-    path = "./Data/previousApplicants.csv"
+    path = sys.argv[1] if len(sys.argv) > 1 else "./Data/previousApplicants.csv"
     model = LoanApprovalModel(path).run()
     new = pd.DataFrame({'Income': [45000, 18000], 'Outgoings': [20000, 22000]})
     print(model.predict(new))
