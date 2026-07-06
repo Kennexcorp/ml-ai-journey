@@ -83,6 +83,30 @@ if __name__ == "__main__":
     main()
 EOF
 
+cat > "$dir/notebook.ipynb" <<EOF
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": "# ${next} · ${title} — exploration\n\nScratchpad for exploring the problem and building intuition. Once something works and you understand *why*, graduate the clean, reproducible version into main.py."
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": ""
+  }
+ ],
+ "metadata": {
+  "language_info": { "name": "python" }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
+EOF
+
 cat > "$dir/README.md" <<EOF
 # ${next} · ${title}
 
@@ -97,6 +121,9 @@ TODO — what are we predicting / building?
 - ${concepts}
 
 ## ▶️ Running it
+
+Explore interactively in [\`notebook.ipynb\`](./notebook.ipynb); the clean,
+reproducible version lives in \`main.py\`:
 
 \`\`\`bash
 uv sync
@@ -121,4 +148,4 @@ echo
 echo "Next steps:"
 echo "  cd $dir"
 echo "  uv add <packages>      # e.g. uv add numpy scikit-learn"
-echo "  \$EDITOR README.md main.py"
+echo "  explore in notebook.ipynb, then build the clean version in main.py"
