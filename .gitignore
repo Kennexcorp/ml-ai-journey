@@ -29,6 +29,12 @@ env/
 # Uncomment the next line to ignore ALL data dirs by default:
 # **/Data/
 
+# Auto-downloaded datasets (reproducible via each project's loader — no need to
+# commit them). e.g. project 02's California housing archive + extracted CSV.
+*.tgz
+*.tar.gz
+**/Data/housing/
+
 # Generated report figures under */Output/ are intentionally COMMITTED (not
 # ignored) so the project READMEs render results on GitHub without running the
 # code. They're deterministic (fixed random_state), so they change only when the
@@ -51,3 +57,4 @@ CLAUDE.md
 .idea/
 .vscode/
 *.swp
+draft.ipynb
