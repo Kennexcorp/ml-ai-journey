@@ -14,6 +14,7 @@ code, and notes. This page is the index.
 | # | Project | Concepts / Techniques | Status |
 |---|---------|-----------------------|:------:|
 | 01 | [Loan Approval Prediction](./01-loan-approval-xgboost) | XGBoost, SHAP explainability, feature engineering, class-based ML pipeline | ✅ |
+| 02 | [California Housing Regression](./02-california-housing-regression) | linear & tree regression, feature engineering, preprocessing pipelines | 🚧 |
 
 **Status key:** ✅ complete · 🚧 in progress · 💡 planned
 
